@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.adopter.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.adopter.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="adopters.edit({ adopterId: vm.adopter._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.adopter.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.adopter.user"
+            ng-bind="vm.adopter.user.displayName"></span>
+      <span ng-if="!vm.adopter.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.adopter.content"></p>
+</section>
