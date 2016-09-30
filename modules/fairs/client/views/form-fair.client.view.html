@@ -1,0 +1,59 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.fair._id ? 'Edit Fair' : 'New Fair'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.fairForm" class="form-horizontal" ng-submit="vm.save(vm.form.fairForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.fair.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.fairForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Start Date</label>
+          <input name="startDate" type="text" ng-model="vm.fair.startDate" id="startDate" class="form-control" placeholder="Start Date" required>
+          <div ng-messages="vm.form.fairForm.startDate.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair start date is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">End Date</label>
+          <input name="endDate" type="text" ng-model="vm.fair.endDate" id="endDate" class="form-control" placeholder="End Date" required>
+          <div ng-messages="vm.form.fairForm.endDate.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair end date is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Start Time</label>
+          <input name="startTime" type="text" ng-model="vm.fair.startTime" id="startTime" class="form-control" placeholder="Start Time" required>
+          <div ng-messages="vm.form.fairForm.startTime.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair start time is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">End Time</label>
+          <input name="endTime" type="text" ng-model="vm.fair.endTime" id="endTime" class="form-control" placeholder="End Time" required>
+          <div ng-messages="vm.form.fairForm.endTime.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair end time is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Organizer</label>
+          <input name="organizer" type="text" ng-model="vm.fair.organizer" id="organizer" class="form-control" placeholder="Organizer" required>
+          <div ng-messages="vm.form.fairForm.organizer.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Fair organizer is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.fair._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

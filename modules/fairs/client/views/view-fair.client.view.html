@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.fair.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.fair.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="fairs.edit({ fairId: vm.fair._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.fair.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.fair.user"
+            ng-bind="vm.fair.user.displayName"></span>
+      <span ng-if="!vm.fair.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.fair.content"></p>
+</section>

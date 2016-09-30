@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Fairs</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="fair in vm.fairs"
+       ui-sref="fairs.view({ fairId: fair._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="fair.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="fair.user" ng-bind="fair.user.displayName"></span>
+        <span ng-if="!fair.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="fair.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.fairs.$resolved && !vm.fairs.length">
+    No Fairs yet, why don't you <a ui-sref="fairs.create">create one</a>?
+  </div>
+</section>
